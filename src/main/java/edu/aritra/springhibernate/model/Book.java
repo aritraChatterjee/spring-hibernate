@@ -6,14 +6,16 @@ import lombok.EqualsAndHashCode;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 public class Book extends BaseJpaEntity {
-
+    @NotNull
     private String name;
+
     private String language;
 
     @ManyToMany(mappedBy = "books")
@@ -28,7 +30,7 @@ public class Book extends BaseJpaEntity {
     private List<Tag> tags;
 
     @ManyToOne
-    private Library library;
+    private Shelf shelf;
 
 
     public void addAuthor(Author author) {

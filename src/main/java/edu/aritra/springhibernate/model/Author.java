@@ -7,12 +7,14 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 public class Author extends BaseJpaEntity {
+    @NotNull
     private String firstName;
     private String lastName;
 
