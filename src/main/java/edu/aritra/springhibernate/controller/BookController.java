@@ -18,12 +18,12 @@ public class BookController {
     @GetMapping(value = "/book")
     public ResponseEntity<List<Book>> getBooks() {
 
-        return new ResponseEntity<List<Book>>(bookService.list(), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(bookService.list(), HttpStatus.ACCEPTED);
     }
 
     @GetMapping(value = "/book/delete")
     public ResponseEntity<List<Book>> deleteBooks() {
         bookService.deleteAll();
-        return new ResponseEntity<List<Book>>(bookService.list(), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(bookService.list(), HttpStatus.ACCEPTED);
     }
 }

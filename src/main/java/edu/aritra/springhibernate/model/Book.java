@@ -5,10 +5,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
@@ -19,7 +16,8 @@ public class Book extends BaseJpaEntity {
     private String name;
     private String language;
 
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToMany(mappedBy = "books")
+    @Setter(AccessLevel.NONE)
     private List<Author> authors;
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -34,7 +32,6 @@ public class Book extends BaseJpaEntity {
 
 
     public void addAuthor(Author author) {
-        author.setBook(this);
         this.authors.add(author);
     }
 
