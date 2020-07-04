@@ -1,35 +1,39 @@
 package edu.aritra.springhibernate.model;
 
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Setter;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
+@Data
 public class Library extends BaseJpaEntity {
     private String location;
 
     @OneToMany(mappedBy = "library", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Setter(AccessLevel.NONE)
     private List<Book> books;
 
-    public String getLocation() {
-        return location;
-    }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
+    @OneToMany
+    @Setter(AccessLevel.NONE)
+    private List<Tag> tags;
 
     public void addBook(Book book) {
         book.setLibrary(this);
         this.books.add(book);
     }
 
-    public List<Book> getBooks() {
-        return books;
+    public void addTag(Tag tag) {
+        this.tags.add(tag);
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
-    }
 }
+
+

@@ -9,9 +9,9 @@ import javax.persistence.ManyToOne;
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
-public class Author extends BaseJpaEntity{
-    private String firstName;
-    private String lastName;
+public class Review extends BaseJpaEntity {
+    private int rating;
+    private String reviewDescription;
 
     @ManyToOne
     private Book book;
