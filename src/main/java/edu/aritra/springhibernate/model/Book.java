@@ -25,7 +25,10 @@ public class Book extends BaseJpaEntity {
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Review> reviews;
 
-    @OneToMany
+    @ManyToMany
+    @JoinTable(name = "BOOK_TAG",
+            joinColumns = @JoinColumn(name = "BOOK_ID"),
+            inverseJoinColumns = @JoinColumn(name = "TAG_ID"))
     @Setter(AccessLevel.NONE)
     private List<Tag> tags;
 

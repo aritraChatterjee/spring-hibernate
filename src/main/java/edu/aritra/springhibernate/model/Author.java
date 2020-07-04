@@ -6,6 +6,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -19,6 +21,9 @@ public class Author extends BaseJpaEntity {
     private String lastName;
 
     @ManyToMany
+    @JoinTable(name = "AUTHOR_BOOK",
+            joinColumns = @JoinColumn(name = "AUTHOR_ID"),
+            inverseJoinColumns = @JoinColumn(name = "BOOK_ID"))
     @Setter(AccessLevel.NONE)
     private List<Book> books;
 
