@@ -1,20 +1,22 @@
 package edu.aritra.springhibernate.model;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Setter;
-
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Setter;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
+@Builder
 public class Author extends BaseJpaEntity {
     @NotNull
     private String firstName;
