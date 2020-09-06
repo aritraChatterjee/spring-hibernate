@@ -1,19 +1,25 @@
 package edu.aritra.springhibernate.model;
 
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
-
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Data
 @Builder
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Tag extends BaseJpaEntity {
     @NotNull
     private String name;

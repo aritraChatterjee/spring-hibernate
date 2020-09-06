@@ -1,13 +1,15 @@
 package edu.aritra.springhibernate.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-import lombok.Data;
-
 @MappedSuperclass
-@Data
+@Getter
+@Setter
 public class BaseJpaEntity {
     @Id
     @GeneratedValue
