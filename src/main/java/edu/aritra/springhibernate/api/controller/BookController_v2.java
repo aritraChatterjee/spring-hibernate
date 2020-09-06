@@ -1,4 +1,4 @@
-package edu.aritra.springhibernate.api.v2.controller;
+package edu.aritra.springhibernate.api.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/v2")
-public class BookController {
+public class BookController_v2 {
 
 }
 
