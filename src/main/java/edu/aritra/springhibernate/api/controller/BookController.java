@@ -1,4 +1,4 @@
-package edu.aritra.springhibernate.api.v1.controller;
+package edu.aritra.springhibernate.api.controller;
 
 import edu.aritra.springhibernate.model.Book;
 import edu.aritra.springhibernate.service.BookService;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -21,7 +22,7 @@ public class BookController {
     private BookService bookService;
 
     @GetMapping(value = "/book")
-    public ResponseEntity<List<Book>> getBooks() {
+    public ResponseEntity<List<Book>> getBooks(HttpServletRequest request) {
 
         return new ResponseEntity<>(bookService.list(), HttpStatus.ACCEPTED);
     }
