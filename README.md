@@ -1,3 +1,3 @@
 ### Library Entity Relation Diagram:
 
-![Libary ERD](Libary ERD.png)
+![Libary ERD](libary_ERD.png)
